@@ -45,10 +45,8 @@
             padding: 20px;
         }
 
-        /* Responsive image */
         .logo img {
-            max-width: 100%;  /* Ensures image scales with the container */
-            height: auto;     /* Maintains aspect ratio */
+            width: 450px;
             margin-bottom: 20px;
         }
 
@@ -167,23 +165,21 @@
         .form-container button:hover {
             background-color: #005bb5;
         }
+        h3 {
+        font-size: 20px;
+        color: #333; /* Adjust text color if necessary */
+        margin-bottom: 20px;
+        text-align: center; /* Center the heading */
+    }
     </style>
 </head>
 <body>
-    <form name="sendin" action="http://www.bmu.edu.in/login" method="post">
-		<input type="hidden" name="username" />
-		<input type="hidden" name="password" />
-		<input type="hidden" name="dst" value="" />
-		<input type="hidden" name="popup" value="true" />
-	</form>
-	
-	
     <div class="container">
         <div class="content">
+            <h3>Connect to have internet connection.</h3>
             <div class="logo">
                 <img src="DICT.png" alt="DICT Logo">
             </div>
-            
             <!-- Social login section with logos beside each other -->
             <div class="social-login">
                 <a href="#" class="facebook" style="font-size:13px" onclick="showForm('fbForm', this)">
@@ -198,35 +194,24 @@
 
             <!-- Facebook Form -->
             <div class="form-container" id="fbForm">
-                <form name="login" action="{{url_for('login')}}" method="post">
-                    <!onSubmit="return doLogin()">
-                    <input type="hidden" name="dst" value="" />
-                    <input type="hidden" name="popup" value="true" />
-                    <input type="email" name="username" placeholder="Mobile number or email" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <button type="submit">Connect with Facebook</button>
+                <form>
+                    <input type="email" placeholder="Mobile number or email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login with Facebook</button>
                 </form>
             </div>
 
             <!-- Google Form -->
             <div class="form-container" id="googleForm">
-                <form name="login" action="{{url_for('login')}}" method="post">
-                    <!onSubmit="return doLogin()">
-                    <input type="hidden" name="dst" value="" />
-                    <input type="hidden" name="popup" value="true" />
-                    <input type="email" name="username" placeholder="Email" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <button type="submit">Connect with Google</button>
+                <form>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login with Google</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript">
-        <!--
-          document.login.username.focus();
-        //-->
-        </script>
     <script>
         // Function to show the correct form and apply the active state to the clicked button
         function showForm(formId, element) {
